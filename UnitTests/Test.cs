@@ -28,7 +28,9 @@ using NUnit.Framework;
 using EmailValidation;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using System.Reflection;
 
+[assembly: AssemblyVersion("1.0")]
 namespace UnitTests
 {
 	[TestFixture]
