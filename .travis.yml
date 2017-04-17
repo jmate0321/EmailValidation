@@ -1,8 +1,5 @@
 language: csharp
 solution: EmailValidation.sln
-install:
-  - nuget restore EmailValidation.sln
-  - nuget install NUnit.ConsoleRunner -Version 3.6.1 -OutputDirectory packages
 script:
   - xbuild /p:Configuration=Release EmailValidation.sln
-  - mono ./packages/NUnit.Runners.3.6.1/tools/nunit3-console.exe ./UnitTests/bin/Release/UnitTests.dll
+  - mono ./packages/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./UnitTests/bin/Release/UnitTests.dll
