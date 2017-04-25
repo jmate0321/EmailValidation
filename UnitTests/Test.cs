@@ -252,7 +252,7 @@ namespace UnitTests
 	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
 	    }
 
-	    private bool AreAttributesValid (object target)
+	    private static bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
 			var results = new List<ValidationResult> ();
