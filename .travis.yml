@@ -4,4 +4,4 @@ script:
   - xbuild /p:Configuration=Release EmailValidation.sln
   - mono ./packages/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./UnitTests/bin/Release/UnitTests.dll
   - mono ./packages/OpenCover.*/tools/OpenCover.Console.exe -register:user -target:nunit-console.exe -targetargs:"./UnitTests/bin/Release/UnitTests.dll" -output:opencoverCoverage.xml
-  - mono ./packages/coveralls.net.*/tools/csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken TKOBT2qfpbd23Mrff76hEwBgYKoy9eHOZ 
+  - mono ./packages/coveralls.net.*/tools/csmacnz.Coveralls.exe --opencover -i ./packages/OpenCover.*/tools/opencoverCoverage.xml --repoToken TKOBT2qfpbd23Mrff76hEwBgYKoy9eHOZ 
