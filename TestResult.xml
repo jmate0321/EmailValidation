@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="11" result="Passed" total="11" passed="11" failed="0" inconclusive="0" skipped="0" asserts="191" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-04-25 17:42:54Z" end-time="2017-04-25 17:42:58Z" duration="3.564310">
+  <command-line><![CDATA["C:\Users\Jenei\Drive\VIK\6\Integrációs és ellenőrzési technikák\házi\EmailValidation\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" "UnitTests\bin\Debug\UnitTests.dll"]]></command-line>
+  <test-suite type="Assembly" id="0-1012" name="UnitTests.dll" fullname="C:\Users\Jenei\Drive\VIK\6\Integrációs és ellenőrzési technikák\házi\EmailValidation\UnitTests\bin\Debug\UnitTests.dll" runstate="Runnable" testcasecount="11" result="Passed" start-time="2017-04-25 17:42:57Z" end-time="2017-04-25 17:42:58Z" duration="0.343042" total="11" passed="11" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="191">
+    <environment framework-version="3.6.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.14393.0" platform="Win32NT" cwd="C:\Users\Jenei\Drive\VIK\6\Integrációs és ellenőrzési technikák\házi\EmailValidation" machine-name="JENEI" user="Jenei" user-domain="JENEI" culture="hu-HU" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Users\Jenei\Drive\VIK\6\Integrációs és ellenőrzési technikák\házi\EmailValidation" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.0" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="8" />
+    </settings>
+    <properties>
+      <property name="_PID" value="44652" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <test-suite type="TestSuite" id="0-1013" name="UnitTests" fullname="UnitTests" runstate="Runnable" testcasecount="11" result="Passed" start-time="2017-04-25 17:42:57Z" end-time="2017-04-25 17:42:58Z" duration="0.319071" total="11" passed="11" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="191">
+      <test-suite type="TestFixture" id="0-1000" name="Test" fullname="UnitTests.Test" classname="UnitTests.Test" runstate="Runnable" testcasecount="11" result="Passed" start-time="2017-04-25 17:42:57Z" end-time="2017-04-25 17:42:58Z" duration="0.314255" total="11" passed="11" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="191">
+        <test-case id="0-1002" name="TestInvalidAddresses" fullname="UnitTests.Test.TestInvalidAddresses" methodname="TestInvalidAddresses" classname="UnitTests.Test" runstate="Runnable" seed="460884410" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.042112" asserts="35" />
+        <test-case id="0-1004" name="TestThrowsExceptionIfNull" fullname="UnitTests.Test.TestThrowsExceptionIfNull" methodname="TestThrowsExceptionIfNull" classname="UnitTests.Test" runstate="Runnable" seed="749934644" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.065022" asserts="1" />
+        <test-case id="0-1001" name="TestValidAddresses" fullname="UnitTests.Test.TestValidAddresses" methodname="TestValidAddresses" classname="UnitTests.Test" runstate="Runnable" seed="1048477234" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.018905" asserts="54" />
+        <test-case id="0-1006" name="TestValidationAttributeInvalidAddresses" fullname="UnitTests.Test.TestValidationAttributeInvalidAddresses" methodname="TestValidationAttributeInvalidAddresses" classname="UnitTests.Test" runstate="Runnable" seed="1333738412" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.095883" asserts="35" />
+        <test-case id="0-1005" name="TestValidationAttributeValidAddresses" fullname="UnitTests.Test.TestValidationAttributeValidAddresses" methodname="TestValidationAttributeValidAddresses" classname="UnitTests.Test" runstate="Runnable" seed="2063376600" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.017603" asserts="54" />
+        <test-case id="0-1007" name="TestValidationAttributeValidInternationalAddresses" fullname="UnitTests.Test.TestValidationAttributeValidInternationalAddresses" methodname="TestValidationAttributeValidInternationalAddresses" classname="UnitTests.Test" runstate="Runnable" seed="689340171" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.002799" asserts="4" />
+        <test-case id="0-1008" name="TestValidationCorrectLength" fullname="UnitTests.Test.TestValidationCorrectLength" methodname="TestValidationCorrectLength" classname="UnitTests.Test" runstate="Runnable" seed="744579708" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.000829" asserts="1" />
+        <test-case id="0-1009" name="TestValidationIncorrectLength0" fullname="UnitTests.Test.TestValidationIncorrectLength0" methodname="TestValidationIncorrectLength0" classname="UnitTests.Test" runstate="Runnable" seed="1923033410" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.000749" asserts="1" />
+        <test-case id="0-1010" name="TestValidationIncorrectLength255" fullname="UnitTests.Test.TestValidationIncorrectLength255" methodname="TestValidationIncorrectLength255" classname="UnitTests.Test" runstate="Runnable" seed="1743063646" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.001391" asserts="1" />
+        <test-case id="0-1011" name="TestValidationIncorrectLengthTooLong" fullname="UnitTests.Test.TestValidationIncorrectLengthTooLong" methodname="TestValidationIncorrectLengthTooLong" classname="UnitTests.Test" runstate="Runnable" seed="2109437478" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.003499" asserts="1" />
+        <test-case id="0-1003" name="TestValidInternationalAddresses" fullname="UnitTests.Test.TestValidInternationalAddresses" methodname="TestValidInternationalAddresses" classname="UnitTests.Test" runstate="Runnable" seed="1554247394" result="Passed" start-time="2017-04-25 17:42:58Z" end-time="2017-04-25 17:42:58Z" duration="0.001163" asserts="4" />
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>
