@@ -13,7 +13,7 @@ install:
   - ./configure
   - make
   - sudo make install
-  - cd ../../csMACnz/Coveralls.net-Samples
+  - cd ../../jmate0321/EmailValidation
 script:
   - xbuild /p:Configuration=Release EmailValidation.sln
   - mono ./packages/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./UnitTests/bin/Release/UnitTests.dll
