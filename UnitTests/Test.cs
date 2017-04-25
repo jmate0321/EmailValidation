@@ -250,9 +250,23 @@ namespace UnitTests
 
 
 	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
-	    }
+        }
 
-	    private static bool AreAttributesValid (object target)
+        [Test]
+        public void TestValidationShortIpv4()
+        {
+            const string email = "a@[].";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        [Test]
+        public void TestValidationMissingClosingBracket()
+        {
+            const string email = "aaa@[111.111.111.111";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        private static bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
 			var results = new List<ValidationResult> ();

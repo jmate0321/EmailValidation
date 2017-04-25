@@ -1,4 +1,5 @@
 # EmailValidation
+[![Build Status](https://travis-ci.org/jmate0321/EmailValidation.svg?branch=master)](https://travis-ci.org/jmate0321/EmailValidation)
 
 ## What is EmailValidation?
 
