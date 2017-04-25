@@ -154,21 +154,21 @@ namespace UnitTests
 		[Test]
 		public void TestValidAddresses ()
 		{
-			for (int i = 0; i < ValidAddresses.Length; i++)
+			for (var i = 0; i < ValidAddresses.Length; i++)
 				Assert.IsTrue (EmailValidator.Validate (ValidAddresses[i], true), "Valid Address #{0}: {1}", i, ValidAddresses[i]);
 		}
 
 		[Test]
 		public void TestInvalidAddresses ()
 		{
-			for (int i = 0; i < InvalidAddresses.Length; i++)
+			for (var i = 0; i < InvalidAddresses.Length; i++)
 				Assert.IsFalse (EmailValidator.Validate (InvalidAddresses[i], true), "Invalid Address #{0}: {1}", i, InvalidAddresses[i]);
 		}
 
 		[Test]
 		public void TestValidInternationalAddresses ()
 		{
-			for (int i = 0; i < ValidInternationalAddresses.Length; i++)
+			for (var i = 0; i < ValidInternationalAddresses.Length; i++)
 				Assert.IsTrue (EmailValidator.Validate (ValidInternationalAddresses[i], true, true), "Valid International Address #{0}", i);
 		}
 
@@ -181,7 +181,7 @@ namespace UnitTests
 		[Test]
 		public void TestValidationAttributeValidAddresses ()
 		{
-			EmailValidationTarget target = new EmailValidationTarget ();
+			var target = new EmailValidationTarget ();
 
 			foreach (var email in ValidAddresses) {
 				target.Email = email;
@@ -193,7 +193,7 @@ namespace UnitTests
 		[Test]
 		public void TestValidationAttributeInvalidAddresses ()
 		{
-			EmailValidationTarget target = new EmailValidationTarget ();
+			var target = new EmailValidationTarget ();
 
 			foreach (var email in InvalidAddresses) {
 				target.Email = email;

@@ -54,7 +54,7 @@ namespace EmailValidation
 
 		static bool SkipAtom (string text, ref int index, bool allowInternational)
 		{
-			int startIndex = index;
+			var startIndex = index;
 
 			while (index < text.Length && IsAtom (text[index], allowInternational))
 				index++;
@@ -64,7 +64,7 @@ namespace EmailValidation
 
 		static bool SkipSubDomain (string text, ref int index, bool allowInternational)
 		{
-			int startIndex = index;
+			var startIndex = index;
 
 			if (!IsDomain (text[index], allowInternational) || text[index] == '-')
 				return false;
@@ -101,7 +101,7 @@ namespace EmailValidation
 
 		static bool SkipQuoted (string text, ref int index, bool allowInternational)
 		{
-			bool escaped = false;
+			var escaped = false;
 
 			// skip over leading '"'
 			index++;
@@ -140,11 +140,11 @@ namespace EmailValidation
 
 		static bool SkipIPv4Literal (string text, ref int index)
 		{
-			int groups = 0;
+			var groups = 0;
 
 			while (index < text.Length && groups < 4) {
-				int startIndex = index;
-				int value = 0;
+				var startIndex = index;
+				var value = 0;
 
 				while (index < text.Length && text[index] >= '0' && text[index] <= '9') {
 					value = (value * 10) + (text[index] - '0');
@@ -185,11 +185,11 @@ namespace EmailValidation
 		//             ; IPv4-address-literal may be present
 		static bool SkipIPv6Literal (string text, ref int index)
 		{
-			bool compact = false;
-			int colons = 0;
+			var compact = false;
+			var colons = 0;
 
 			while (index < text.Length) {
-				int startIndex = index;
+				var startIndex = index;
 
 				while (index < text.Length && IsHexDigit (text[index]))
 					index++;
@@ -207,7 +207,7 @@ namespace EmailValidation
 					return compact ? colons < 6 : colons == 6;
 				}
 
-				int count = index - startIndex;
+				var count = index - startIndex;
 				if (count > 4)
 					return false;
 
@@ -258,7 +258,7 @@ namespace EmailValidation
 		/// </exception>
 		public static bool Validate (string email, bool allowTopLevelDomains = false, bool allowInternational = false)
 		{
-			int index = 0;
+			var index = 0;
 
 			if (email == null)
 				throw new ArgumentNullException ("email");
