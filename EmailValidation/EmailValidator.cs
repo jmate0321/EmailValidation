@@ -131,12 +131,9 @@ namespace EmailValidation
 		}
 
 	    private static bool SkipWord (string text, ref int index, bool allowInternational)
-		{
-			if (text[index] == '"')
-				return SkipQuoted (text, ref index, allowInternational);
-
-			return SkipAtom (text, ref index, allowInternational);
-		}
+	    {
+	        return text[index] == '"' ? SkipQuoted (text, ref index, allowInternational) : SkipAtom (text, ref index, allowInternational);
+	    }
 
 	    private static bool SkipIPv4Literal (string text, ref int index)
 		{
