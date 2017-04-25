@@ -259,6 +259,13 @@ namespace UnitTests
             Assert.IsFalse(EmailValidator.Validate(email));
         }
 
+        [Test]
+        public void TestValidationMissingClosingBracket()
+        {
+            const string email = "aaa@[111.111.111.111";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
         private static bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
