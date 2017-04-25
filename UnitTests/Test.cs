@@ -214,7 +214,45 @@ namespace UnitTests
 			}
 		}
 
-		bool AreAttributesValid (object target)
+	    [Test]
+	    public void TestValidationCorrectLength()
+	    {
+	        Assert.IsTrue(EmailValidator.Validate("test@test.com"));
+	    }
+
+	    [Test]
+	    public void TestValidationIncorrectLength0()
+	    {
+	        Assert.IsFalse(EmailValidator.Validate(""));
+        }
+
+	    [Test]
+	    public void TestValidationIncorrectLength255()
+	    {
+	        const string emailEnd = "@test.com";
+
+	        var tooLongString = "";
+	        for (var i = 0; i < 255 - emailEnd.Length; i++)
+	            tooLongString += "a";
+
+
+	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
+	    }
+
+	    [Test]
+	    public void TestValidationIncorrectLengthTooLong()
+	    {
+	        const string emailEnd = "@test.com";
+
+	        var tooLongString = "";
+	        for (var i = 0; i < 1000; i++)
+	            tooLongString += "a";
+
+
+	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
+	    }
+
+        bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
 			var results = new List<ValidationResult> ();
