@@ -36,7 +36,7 @@ namespace UnitTests
 	[TestFixture]
 	public class Test
 	{
-		static readonly string[] ValidAddresses = {
+	    private static readonly string[] ValidAddresses = {
 			"\"Abc\\@def\"@example.com",
 			"\"Fred Bloggs\"@example.com",
 			"\"Joe\\\\Blow\"@example.com",
@@ -97,7 +97,7 @@ namespace UnitTests
 			"uncommon-tld@sld.travel",
 		};
 
-		static readonly string[] InvalidAddresses = {
+	    private static readonly string[] InvalidAddresses = {
 			"",
 			"invalid",
 			"invalid@",
@@ -144,7 +144,7 @@ namespace UnitTests
 			"Moved."
 		};
 
-		static readonly string[] ValidInternationalAddresses = {
+	    private static readonly string[] ValidInternationalAddresses = {
 			"伊昭傑@郵件.商務",    // Chinese
 			"राम@मोहन.ईन्फो",       // Hindi
 			"юзер@екзампл.ком", // Ukranian
@@ -252,7 +252,7 @@ namespace UnitTests
 	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
 	    }
 
-        bool AreAttributesValid (object target)
+	    private bool AreAttributesValid (object target)
 		{
 			var context = new ValidationContext (target, null, null);
 			var results = new List<ValidationResult> ();
@@ -260,13 +260,13 @@ namespace UnitTests
 			return Validator.TryValidateObject (target, context, results, true);
 		}
 
-		class EmailValidationTarget
+	    private class EmailValidationTarget
 		{
 			[Email (true)]
 			public string Email { get; set; }
 		}
 
-		class InternationalEmailValidationTarget
+	    private class InternationalEmailValidationTarget
 		{
 			[Email (true, true)]
 			public string Email { get; set; }

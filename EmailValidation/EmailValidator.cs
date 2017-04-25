@@ -35,24 +35,24 @@ namespace EmailValidation
 	/// </remarks>
 	public static class EmailValidator
 	{
-		const string AtomCharacters = "!#$%&'*+-/=?^_`{|}~";
+	    private const string AtomCharacters = "!#$%&'*+-/=?^_`{|}~";
 
-		static bool IsLetterOrDigit (char c)
+	    private static bool IsLetterOrDigit (char c)
 		{
 			return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9');
 		}
 
-		static bool IsAtom (char c, bool allowInternational)
+	    private static bool IsAtom (char c, bool allowInternational)
 		{
 			return c < 128 ? IsLetterOrDigit (c) || AtomCharacters.IndexOf (c) != -1 : allowInternational;
 		}
 
-		static bool IsDomain (char c, bool allowInternational)
+	    private static bool IsDomain (char c, bool allowInternational)
 		{
 			return c < 128 ? IsLetterOrDigit (c) || c == '-' : allowInternational;
 		}
 
-		static bool SkipAtom (string text, ref int index, bool allowInternational)
+	    private static bool SkipAtom (string text, ref int index, bool allowInternational)
 		{
 			var startIndex = index;
 
@@ -62,7 +62,7 @@ namespace EmailValidation
 			return index > startIndex;
 		}
 
-		static bool SkipSubDomain (string text, ref int index, bool allowInternational)
+	    private static bool SkipSubDomain (string text, ref int index, bool allowInternational)
 		{
 			var startIndex = index;
 
@@ -77,7 +77,7 @@ namespace EmailValidation
 			return (index - startIndex) < 64 && text[index - 1] != '-';
 		}
 
-		static bool SkipDomain (string text, ref int index, bool allowTopLevelDomains, bool allowInternational)
+	    private static bool SkipDomain (string text, ref int index, bool allowTopLevelDomains, bool allowInternational)
 		{
 			if (!SkipSubDomain (text, ref index, allowInternational))
 				return false;
@@ -99,7 +99,7 @@ namespace EmailValidation
 			return true;
 		}
 
-		static bool SkipQuoted (string text, ref int index, bool allowInternational)
+	    private static bool SkipQuoted (string text, ref int index, bool allowInternational)
 		{
 			var escaped = false;
 
@@ -130,7 +130,7 @@ namespace EmailValidation
 			return true;
 		}
 
-		static bool SkipWord (string text, ref int index, bool allowInternational)
+	    private static bool SkipWord (string text, ref int index, bool allowInternational)
 		{
 			if (text[index] == '"')
 				return SkipQuoted (text, ref index, allowInternational);
@@ -138,7 +138,7 @@ namespace EmailValidation
 			return SkipAtom (text, ref index, allowInternational);
 		}
 
-		static bool SkipIPv4Literal (string text, ref int index)
+	    private static bool SkipIPv4Literal (string text, ref int index)
 		{
 			var groups = 0;
 
@@ -163,7 +163,7 @@ namespace EmailValidation
 			return groups == 4;
 		}
 
-		static bool IsHexDigit (char c)
+	    private static bool IsHexDigit (char c)
 		{
 			return (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f') || (c >= '0' && c <= '9');
 		}
@@ -183,7 +183,7 @@ namespace EmailValidation
 		//             ; The "::" represents at least 2 16-bit groups of zeros
 		//             ; No more than 4 groups in addition to the "::" and
 		//             ; IPv4-address-literal may be present
-		static bool SkipIPv6Literal (string text, ref int index)
+	    private static bool SkipIPv6Literal (string text, ref int index)
 		{
 			var compact = false;
 			var colons = 0;
