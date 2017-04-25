@@ -1,5 +1,6 @@
 # EmailValidation
 [![Build Status](https://travis-ci.org/jmate0321/EmailValidation.svg?branch=master)](https://travis-ci.org/jmate0321/EmailValidation)
+[![Coverage Status](https://coveralls.io/repos/github/jmate0321/EmailValidation/badge.svg?branch=)](https://coveralls.io/github/jmate0321/EmailValidation?branch=)
 
 ## What is EmailValidation?
 
