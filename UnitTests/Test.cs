@@ -151,105 +151,108 @@ namespace UnitTests
 			"θσερ@εχαμπλε.ψομ", // Greek
 		};
 
-		[Test]
-		public void TestValidAddresses ()
-		{
-			for (var i = 0; i < ValidAddresses.Length; i++)
-				Assert.IsTrue (EmailValidator.Validate (ValidAddresses[i], true), "Valid Address #{0}: {1}", i, ValidAddresses[i]);
-		}
-
-		[Test]
-		public void TestInvalidAddresses ()
-		{
-			for (var i = 0; i < InvalidAddresses.Length; i++)
-				Assert.IsFalse (EmailValidator.Validate (InvalidAddresses[i], true), "Invalid Address #{0}: {1}", i, InvalidAddresses[i]);
-		}
-
-		[Test]
-		public void TestValidInternationalAddresses ()
-		{
-			for (var i = 0; i < ValidInternationalAddresses.Length; i++)
-				Assert.IsTrue (EmailValidator.Validate (ValidInternationalAddresses[i], true, true), "Valid International Address #{0}", i);
-		}
-
-		[Test]
-		public void TestThrowsExceptionIfNull ()
-		{
-			Assert.Throws<ArgumentNullException> (() => EmailValidator.Validate (null, true, true), "Null Address");
-		}
-
-		[Test]
-		public void TestValidationAttributeValidAddresses ()
-		{
-			var target = new EmailValidationTarget ();
-
-			foreach (var email in ValidAddresses) {
-				target.Email = email;
-
-				Assert.IsTrue (AreAttributesValid (target), "Valid Address {0}", email);
-			}
-		}
-
-		[Test]
-		public void TestValidationAttributeInvalidAddresses ()
-		{
-			var target = new EmailValidationTarget ();
-
-			foreach (var email in InvalidAddresses) {
-				target.Email = email;
-
-				Assert.IsFalse (AreAttributesValid (target), "Invalid Address {0}", email);
-			}
-		}
-
-		[Test]
-		public void TestValidationAttributeValidInternationalAddresses ()
-		{
-			var target = new InternationalEmailValidationTarget ();
-
-			foreach (var email in ValidInternationalAddresses) {
-				target.Email = email;
-
-				Assert.IsTrue (AreAttributesValid (target), "Valid International Address {0}", email);
-			}
-		}
-
-	    [Test]
-	    public void TestValidationCorrectLength()
-	    {
-	        Assert.IsTrue(EmailValidator.Validate("test@test.com"));
-	    }
-
-	    [Test]
-	    public void TestValidationIncorrectLength0()
-	    {
-	        Assert.IsFalse(EmailValidator.Validate(""));
+        [Test]
+        public void TestValidAddresses()
+        {
+            for (var i = 0; i < ValidAddresses.Length; i++)
+                Assert.IsTrue(EmailValidator.Validate(ValidAddresses[i], true), "Valid Address #{0}: {1}", i, ValidAddresses[i]);
         }
 
-	    [Test]
-	    public void TestValidationIncorrectLength255()
-	    {
-	        const string emailEnd = "@test.com";
+        [Test]
+        public void TestInvalidAddresses()
+        {
+            for (var i = 0; i < InvalidAddresses.Length; i++)
+                Assert.IsFalse(EmailValidator.Validate(InvalidAddresses[i], true), "Invalid Address #{0}: {1}", i, InvalidAddresses[i]);
+        }
 
-	        var tooLongString = "";
-	        for (var i = 0; i < 255 - emailEnd.Length; i++)
-	            tooLongString += "a";
+        [Test]
+        public void TestValidInternationalAddresses()
+        {
+            for (var i = 0; i < ValidInternationalAddresses.Length; i++)
+                Assert.IsTrue(EmailValidator.Validate(ValidInternationalAddresses[i], true, true), "Valid International Address #{0}", i);
+        }
+
+        [Test]
+        public void TestThrowsExceptionIfNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => EmailValidator.Validate(null, true, true), "Null Address");
+        }
+
+        [Test]
+        public void TestValidationAttributeValidAddresses()
+        {
+            var target = new EmailValidationTarget();
+
+            foreach (var email in ValidAddresses)
+            {
+                target.Email = email;
+
+                Assert.IsTrue(AreAttributesValid(target), "Valid Address {0}", email);
+            }
+        }
+
+        [Test]
+        public void TestValidationAttributeInvalidAddresses()
+        {
+            var target = new EmailValidationTarget();
+
+            foreach (var email in InvalidAddresses)
+            {
+                target.Email = email;
+
+                Assert.IsFalse(AreAttributesValid(target), "Invalid Address {0}", email);
+            }
+        }
+
+        [Test]
+        public void TestValidationAttributeValidInternationalAddresses()
+        {
+            var target = new InternationalEmailValidationTarget();
+
+            foreach (var email in ValidInternationalAddresses)
+            {
+                target.Email = email;
+
+                Assert.IsTrue(AreAttributesValid(target), "Valid International Address {0}", email);
+            }
+        }
+
+        [Test]
+        public void TestValidationCorrectLength()
+        {
+            Assert.IsTrue(EmailValidator.Validate("test@test.com"));
+        }
+
+        [Test]
+        public void TestValidationIncorrectLength0()
+        {
+            Assert.IsFalse(EmailValidator.Validate(""));
+        }
+
+        [Test]
+        public void TestValidationIncorrectLength255()
+        {
+            const string emailEnd = "@test.com";
+
+            var tooLongString = "";
+            for (var i = 0; i < 255 - emailEnd.Length; i++)
+                tooLongString += "a";
 
 
-	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
-	    }
+            Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
+        }
 
-	    [Test]
-	    public void TestValidationIncorrectLengthTooLong()
-	    {
-	        const string emailEnd = "@test.com";
+        [Test]
+        public void TestValidationIncorrectLengthTooLong()
+        {
+            const string emailEnd = "@test.com";
 
-	        var tooLongString = "";
-	        for (var i = 0; i < 1000; i++)
-	            tooLongString += "a";
+            var tooLongString = "";
+            for (var i = 0; i < 1000; i++)
+                tooLongString += "a";
 
 
-	        Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
+            Assert.IsFalse(EmailValidator.Validate(tooLongString + emailEnd));
         }
 
         [Test]
@@ -266,24 +269,31 @@ namespace UnitTests
             Assert.IsFalse(EmailValidator.Validate(email));
         }
 
-        private static bool AreAttributesValid (object target)
-		{
-			var context = new ValidationContext (target, null, null);
-			var results = new List<ValidationResult> ();
+        [Test]
+        public void TestValidationNotAllowTopLevelDomains()
+        {
+            const string email = "A@b@c@example.com";
+            Assert.IsFalse(EmailValidator.Validate(email,false));
+        }
 
-			return Validator.TryValidateObject (target, context, results, true);
-		}
+        private static bool AreAttributesValid(object target)
+        {
+            var context = new ValidationContext(target, null, null);
+            var results = new List<ValidationResult>();
 
-	    private class EmailValidationTarget
-		{
-			[Email (true)]
-			public string Email { get; set; }
-		}
+            return Validator.TryValidateObject(target, context, results, true);
+        }
 
-	    private class InternationalEmailValidationTarget
-		{
-			[Email (true, true)]
-			public string Email { get; set; }
-		}
-	}
+        private class EmailValidationTarget
+        {
+            [Email(true)]
+            public string Email { get; set; }
+        }
+
+        private class InternationalEmailValidationTarget
+        {
+            [Email(true, true)]
+            public string Email { get; set; }
+        }
+    }
 }
