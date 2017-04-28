@@ -325,6 +325,25 @@ namespace UnitTests
             Assert.IsFalse(EmailValidator.Validate(email, false, false));
         }
 
+        //[Test]
+        //public void TestAttribute()
+        //{
+        //    var target = new EmailAttribute();
+
+        //    var context = new ValidationContext(target, null, null);
+        //    var results = new List<ValidationResult>();
+
+        //    Assert.IsFalse(Validator.TryValidateObject(target, context, results, false));
+        //}
+        [Test]
+        public void TestValidationAttribute()
+        {
+            var target = new EmailValidationTarget();
+            target.Email = null;
+            Assert.IsFalse(AreAttributesValid(target), "Email can't be null {0}", "");
+        }
+
+
         private static bool AreAttributesValid(object target)
         {
             var context = new ValidationContext(target, null, null);
