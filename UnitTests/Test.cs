@@ -276,6 +276,13 @@ namespace UnitTests
             Assert.IsFalse(EmailValidator.Validate(email,false));
         }
 
+        [Test]
+        public void TestValidationWithoutIpv6()
+        {
+            const string email = "teszt@[IPv6:123456";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
         private static bool AreAttributesValid(object target)
         {
             var context = new ValidationContext(target, null, null);
