@@ -277,7 +277,7 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestValidationIpv6MissingClocingBracket()
+        public void TestValidationIpv6MissingClosingBracket()
         {
             const string email = "teszt@[IPv6:2607:f0d0:1002:51::4";
             Assert.IsFalse(EmailValidator.Validate(email));
@@ -309,6 +309,20 @@ namespace UnitTests
         {
             const string email = "teszt@[IPv6:1111:1111]";
             Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        [Test]
+        public void TestValidationQuoteWithNotAsciAndNotInternational()
+        {
+            const string email = "\"á\"@example.com";
+            Assert.IsFalse(EmailValidator.Validate(email, false, false));
+        }
+
+        [Test]
+        public void TestValidationQuoteWithoutEnd()
+        {
+            const string email = "\"test@example.com";
+            Assert.IsFalse(EmailValidator.Validate(email, false, false));
         }
 
         private static bool AreAttributesValid(object target)
