@@ -304,6 +304,13 @@ namespace UnitTests
             Assert.IsFalse(EmailValidator.Validate(email));
         }
 
+        [Test]
+        public void TestValidationIpv6LessThanTwoColons()
+        {
+            const string email = "teszt@[IPv6:1111:1111]";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
         private static bool AreAttributesValid(object target)
         {
             var context = new ValidationContext(target, null, null);
