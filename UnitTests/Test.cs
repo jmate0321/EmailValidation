@@ -277,9 +277,30 @@ namespace UnitTests
         }
 
         [Test]
-        public void TestValidationWithoutIpv6()
+        public void TestValidationIpv6MissingClocingBracket()
         {
-            const string email = "teszt@[IPv6:123456";
+            const string email = "teszt@[IPv6:2607:f0d0:1002:51::4";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        [Test]
+        public void TestValidationIpv6MoreThanTwoCompacts()
+        {
+            const string email = "teszt@[IPv6:1111::1111::1111]";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        [Test]
+        public void TestValidationIpv6MoreThanTwoColons()
+        {
+            const string email = "teszt@[IPv6:1111:::1111::1111]";
+            Assert.IsFalse(EmailValidator.Validate(email));
+        }
+
+        [Test]
+        public void TestValidationIpv6WithWrongIpv4()
+        {
+            const string email = "teszt@[IPv6:aaaa:aaaa:aaaa:aaaa:aaaa:aaaa:555.666.777.888]";
             Assert.IsFalse(EmailValidator.Validate(email));
         }
 
